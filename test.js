@@ -1,7 +1,7 @@
-//printFull Name
+//printFull Name function
 
 function printFullName(firstName,secondName){
-    console.log(firstName+ " "+ secondName);
+    console.log(`${firstName} ${secondName}`);
 }
 
 printFullName("Joseph", "Mosaad");
@@ -10,29 +10,24 @@ printFullName("Joseph", "Mosaad");
 
 
 
+//age function
 
+function getAge(d1, d2=new Date()){
 
-
-
-
-
-
-//age
-
-function getAge(d1, d2){
-    d2 = d2 || new Date();
     var diff = d2.getTime() - d1.getTime();
-    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    return Math.round(diff / (1000 * 60 * 60 * 24 * 365.25));
 }
 console.log( getAge(new Date(1993, 06, 24)) +" years");
 
 
 
+//age function 2
+function getAge2(d1, d2=new Date()){
 
-
-
-
-
+  
+    return Math.floor((Date.UTC(d2.getFullYear(), d2.getMonth(), d2.getDate()) - Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate()) ) /(1000 * 60 * 60 * 24));
+}
+console.log( getAge2(new Date(1993, 06, 24)) +" days");
 
 
 
@@ -47,9 +42,9 @@ function capitalizeString(string){
  console.log(capitalizeString ("hello world!"));
 
 
-function sentenceCase(input, lowercaseBefore) {
-    if (lowercaseBefore) { input = input.toLowerCase(); }
-    return input.toString().replace( /(^|\. *)([a-z])/g, function(match, separator, char) {
+
+function sentenceCase(input) {
+    return input.toString().replace( /(^|\. *)([a-z])/g, function(match,separator, char) {
         return separator + char.toUpperCase();
     });
 }
@@ -63,26 +58,28 @@ console.log(str);
 
 
 
-//oddishOr Evenish
 
+
+
+//oddish Or Evenish function 
 function oddishOrEvenish(number){
     let sum = 0;
     while (number) {
     sum += number % 10;
     number = Math.floor(number / 10);
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                         
     let reminder = sum % 2;
     if (reminder == 0) {
         console.log("Evenish");
     } 
-    else if (reminder == Math.round(reminder)) {
+    else  {
         console.log("Oddish");
-    } 
-    else {
-        console.log("invalid");
     }
 }
 oddishOrEvenish(4433);
+
+
+
 
 
 
@@ -101,7 +98,10 @@ function sevenBoom (arr){
 
 
 
-//diff in days
+
+
+    
+//diff in days function 
 
     var getDays = function(date1, date2) {
         dt1 = new Date(date1);
@@ -112,7 +112,6 @@ function sevenBoom (arr){
         console.log(getDays('December 29, 2018', 'January 1, 2019'));
       
 
-//count was testing it and it failed ,
 
 
 
@@ -120,42 +119,9 @@ function sevenBoom (arr){
 
 
 
-        function compressArray(original) {
- 
-            var compressed = [];
-            // make a copy of the input array
-            var copy = original.slice(0);
-         
-            // first loop goes over every element
-            for (var i = 0; i < original.length; i++) {
-         
-                var myCount = 0;	
-                // loop over every element in the copy and see if it's the same
-                for (var w = 0; w < copy.length; w++) {
-                    if (original[i] == copy[w]) {
-                        // increase amount of times duplicate is found
-                        myCount++;
-                        // sets item to undefined
-                        delete copy[w];
-                    }
-                }
-         
-                if (myCount > 0) {
-                    var a = new Object();
-                    a.value = original[i];
-                    a.count = myCount;
-                    compressed.push(a);
-                }
-            }
-         
-            return compressed;
-        };
-        
-        // It should go something like this:
-        
-        var testArray = new Array("dog", "dog", "cat", "buffalo", "wolf", "cat", "tiger", "cat");
-        var newArray = compressArray(testArray);
-         
+
+
+    
 
        
 

@@ -12,12 +12,12 @@ printFullName("Joseph", "Mosaad");
 
 //age function
 
-function getAge(d1, d2=new Date()){
+function ageToToday(d1, d2=new Date()){
 
     var diff = d2.getTime() - d1.getTime();
     return Math.round(diff / (1000 * 60 * 60 * 24 * 365.25));
 }
-console.log( getAge(new Date(1993, 06, 24)) +" years");
+console.log(ageToToday(new Date(1993, 06, 24)) +" years");
 
 
 
@@ -77,6 +77,28 @@ function oddishOrEvenish(number){
     }
 }
 oddishOrEvenish(4433);
+
+
+
+//oddish or evenish 2
+function oddishEvenish(number){
+    let numberToString=number.toString();
+    let sum=0
+    for(i=0;i<numberToString.length;i++){
+        sum+=parseInt(numberToString[i]);
+
+    }
+    return (sum % 2 === 0 ? "Evenish":"Oddish")
+}
+
+
+
+console.log(oddishEvenish(4433));
+
+
+
+
+
 
 
 
